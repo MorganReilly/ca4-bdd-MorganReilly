@@ -27,7 +27,16 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
     And I uncheck the following ratings: PG-13, G
     And I press "Refresh"
     Then I should see "The Incredibles"
-    Then I should not see "2001: A Space Odyssey"
+    And I should see "Amelie"
+    And I should not see "2001: A Space Odyssey"
+    And I should not see "Chocolat"
+    
 
 Scenario: all ratings selected
   # see assignment
+    Given I check the following ratings: G, PG, PG-13, NC-17, R
+    And I press "Refresh"
+    Then I should see "2001: A Space Odyssey"
+    And I should see "Raiders of the Lost Ark"
+    And I should see "Chocolat"
+    And I should see "Amelie"
